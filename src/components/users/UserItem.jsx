@@ -7,7 +7,7 @@ function UserItem({user : {login, avatar_url}}) {
         
         <div className = 'card shadow-md compact side bg-base-100'>
             <div className = 'flex-row items-center space-x-4 card-body'>
-                <Link to = {`/users/${login}`}>
+                <Link to = {`/user/${login}`}>
                     <div>
                         <div className = 'avatar'>
                             <div className="rounded-full shadow w-14 h-14">
@@ -16,10 +16,10 @@ function UserItem({user : {login, avatar_url}}) {
                         </div>
                     </div>
                     </Link>
-                    <Link to = {`/users/${login}`}>
+                    <Link to = {`/user/${login}`}>
                     <div>
                         <h2 className = 'card-title hover:underline'>{login}</h2>
-                        <Link className = 'text-base-content text-opacity-40' to = {`/users/${login}`}>
+                        <Link className = 'text-base-content text-opacity-40' to = {`/user/${login}`}>
                             Profile 
                         </Link>
                     </div>
