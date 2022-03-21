@@ -1,26 +1,29 @@
 import {FaCode, FaCodepen, FaStore, FaUserFriends, FaUsers} from 'react-icons/fa'
 import { useContext, useEffect } from "react"
 import GithubContext from "../context/github/GithubContext"
+import RepoList from '../components/repos/RepoList'
 import { Link } from 'react-router-dom'
 import { useParams } from "react-router"
 
-
+ 
 
 function User() {
 
-    const { getUser, user } = useContext(GithubContext)
+    const { getUser, user, loading, getUserRepos, repos } = useContext(GithubContext)
 
     const params = useParams()
 
     useEffect(() => {
         getUser(params.login)
+        getUserRepos(params.login) 
+
     }, [])
 
     const {
         name,
         type, 
         avatar_url,
-        location,
+        location, 
         bio,
         blog,
         twitter_username,
@@ -151,6 +154,7 @@ function User() {
 
 
             </div>
+            <RepoList repos={repos} />
         </div>
         
 
